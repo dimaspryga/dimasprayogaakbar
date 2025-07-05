@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 
 interface SplitTextProps {
   children: string
@@ -11,7 +11,7 @@ interface SplitTextProps {
 export function SplitText({ children, className = "", delay = 0 }: SplitTextProps) {
   const words = children.split(" ")
 
-  const container = {
+  const container: Variants = {
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
       opacity: 1,
@@ -19,12 +19,12 @@ export function SplitText({ children, className = "", delay = 0 }: SplitTextProp
     }),
   }
 
-  const child = {
+  const child: Variants = {
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         damping: 12,
         stiffness: 100,
       },
@@ -33,7 +33,7 @@ export function SplitText({ children, className = "", delay = 0 }: SplitTextProp
       opacity: 0,
       y: 20,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         damping: 12,
         stiffness: 100,
       },

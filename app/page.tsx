@@ -94,7 +94,7 @@ export default function Home() {
             {skills.map((skill, index) => (
               <span
                 key={index}
-                className="mx-6 text-2xl lg:text-4xl text-muted-foreground/60 hover:text-primary/80 transition-colors"
+                className="mx-6 text-2xl transition-colors lg:text-4xl text-muted-foreground/60 hover:text-primary/80"
               >
                 {skill}
               </span>
@@ -105,7 +105,7 @@ export default function Home() {
 
       {/* Featured Projects */}
       <section className="py-16 lg:py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <SectionHeader badge="PORTFOLIO" title="Featured Projects" />
 
           <motion.div
@@ -122,12 +122,12 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
-            className="text-center mt-12"
+            className="mt-12 text-center"
           >
             <AnimatedButton
               href="/projects"
               variant="outline"
-              className="text-sm px-6 py-2 bg-transparent font-medium border-primary/20 hover:bg-primary/10 hover:border-primary/40"
+              className="px-6 py-2 text-sm font-medium bg-transparent border-primary/20 hover:bg-primary/10 hover:border-primary/40"
             >
               View All Projects
             </AnimatedButton>
@@ -136,11 +136,11 @@ export default function Home() {
       </section>
 
       {/* Areas of Expertise */}
-      <section className="py-16 bg-gray-900 dark:bg-gray-950 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 text-white bg-gray-900 dark:bg-gray-950">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <SectionHeader badge="SPECIALITY" title="Areas of Expertise" badgeColor="text-purple-400" />
 
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="grid items-start gap-12 lg:grid-cols-2">
             {/* Left Side - Services */}
             <div className="space-y-3">
               {services.map((service, index) => (
@@ -162,13 +162,13 @@ export default function Home() {
               viewport={{ once: true }}
               className="relative lg:sticky lg:top-8"
             >
-              <div className="relative rounded-2xl overflow-hidden">
+              <div className="relative overflow-hidden rounded-2xl">
                 <Image
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-07-05%20145357-IfacaMR6bjnUgpJQvj4qxaaVsebqoq.png"
                   alt="Workspace with laptop showing code"
                   width={600}
                   height={400}
-                  className="w-full h-auto object-cover"
+                  className="object-cover w-full h-auto"
                 />
               </div>
             </motion.div>
@@ -184,9 +184,9 @@ export default function Home() {
           >
             <Marquee speed={30} className="py-3">
               {techStackLogos.map((tech, index) => (
-                <div key={index} className="mx-4 flex items-center space-x-2 whitespace-nowrap">
+                <div key={index} className="flex items-center mx-4 space-x-2 whitespace-nowrap">
                   <div
-                    className="w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-medium"
+                    className="flex items-center justify-center w-6 h-6 text-xs font-medium text-white rounded-full"
                     style={{ backgroundColor: tech.color }}
                   >
                     {tech.icon}
@@ -201,7 +201,7 @@ export default function Home() {
 
       {/* Call to Action */}
       <section className="py-16 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl px-4 mx-auto text-center sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -210,16 +210,16 @@ export default function Home() {
             className="space-y-6"
           >
             <SectionHeader badge="GET IN TOUCH" title="" />
-            <h1 className="scroll-m-20 text-2xl lg:text-4xl font-extrabold tracking-tight leading-tight">
+            <h1 className="text-2xl font-extrabold leading-tight tracking-tight scroll-m-20 lg:text-4xl">
               Ready to Start Your Next{" "}
               <GradientText colors={["#8B5CF6", "#A855F7", "#C084FC", "#DDD6FE"]} animationSpeed={2} showBorder={false}>
                 Project?
               </GradientText>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-base lg:text-lg">
+            <p className="max-w-2xl mx-auto text-base text-xl text-muted-foreground lg:text-lg">
               Let's work together to bring your ideas to life with cutting-edge technology and exceptional design.
             </p>
-            <AnimatedButton href="/contact" className="group text-sm px-6 py-2 font-medium">
+            <AnimatedButton href="/contact" className="px-6 py-2 text-sm font-medium group">
               Get In Touch
             </AnimatedButton>
           </motion.div>
