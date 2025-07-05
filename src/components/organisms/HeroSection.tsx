@@ -15,19 +15,18 @@ const socialLinks = [
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden py-6 lg:py-8 bg-gray-950 dark:bg-gray-950 text-white">
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-950 to-black" />
-
+    <section className="relative py-6 overflow-hidden lg:py-8 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-gray-900 dark:via-gray-950 dark:to-black">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-green-500/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+      <div className="absolute inset-0 opacity-30 dark:opacity-10">
+        <div className="absolute rounded-full top-20 left-20 w-72 h-72 bg-purple-500/20 dark:bg-purple-500/20 blur-3xl" />
+        <div className="absolute rounded-full bottom-20 right-20 w-96 h-96 bg-blue-500/10 dark:bg-blue-500/10 blur-3xl" />
+        <div className="absolute w-64 h-64 transform -translate-x-1/2 -translate-y-1/2 rounded-full top-1/2 left-1/2 bg-purple-500/10 dark:bg-purple-500/10 blur-3xl" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-12 items-center min-h-[70vh]">
           {/* Left Content */}
-          <div className="lg:col-span-8 space-y-6">
+          <div className="space-y-6 lg:col-span-8">
             {/* Greeting */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -36,7 +35,7 @@ export function HeroSection() {
               className="flex items-center space-x-2"
             >
               <span className="text-lg">👋</span>
-              <p className="text-gray-400 text-sm text-muted-foreground">Hey! It's me Dimas,</p>
+              <p className="text-sm text-slate-600 dark:text-gray-400">Hey! It's me Dimas,</p>
             </motion.div>
 
             {/* Main Heading */}
@@ -46,7 +45,7 @@ export function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
               >
-                <h1 className="scroll-m-20 text-2xl lg:text-4xl xl:text-5xl font-extrabold tracking-tight leading-tight">
+                <h1 className="text-2xl font-extrabold leading-tight tracking-tight scroll-m-20 lg:text-4xl xl:text-5xl text-slate-900 dark:text-white">
                   Crafting{" "}
                   <GradientText
                     colors={["#8B5CF6", "#A855F7", "#C084FC", "#DDD6FE"]}
@@ -63,7 +62,7 @@ export function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
               >
-                <h1 className="scroll-m-20 text-2xl lg:text-4xl xl:text-5xl font-extrabold tracking-tight leading-tight">
+                <h1 className="text-2xl font-extrabold leading-tight tracking-tight scroll-m-20 lg:text-4xl xl:text-5xl text-slate-900 dark:text-white">
                   <GradientText
                     colors={["#8B5CF6", "#A855F7", "#C084FC", "#DDD6FE"]}
                     animationSpeed={3}
@@ -80,7 +79,7 @@ export function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.8 }}
               >
-                <h1 className="scroll-m-20 text-2xl lg:text-4xl xl:text-5xl font-extrabold tracking-tight leading-tight">
+                <h1 className="text-2xl font-extrabold leading-tight tracking-tight scroll-m-20 lg:text-4xl xl:text-5xl text-slate-900 dark:text-white">
                   & engage.
                 </h1>
               </motion.div>
@@ -103,10 +102,10 @@ export function HeroSection() {
                   <Link
                     href={link.href}
                     target="_blank"
-                    className="group flex items-center space-x-2 text-gray-400 hover:text-green-400 transition-colors duration-300"
+                    className="flex items-center space-x-2 transition-colors duration-300 group text-slate-600 hover:text-purple-600 dark:text-gray-400 dark:hover:text-purple-400"
                   >
                     <span className="text-xs font-medium tracking-wider uppercase">{link.name}</span>
-                    <ExternalLink className="h-3 w-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                    <ExternalLink className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                   </Link>
                 </motion.div>
               ))}
@@ -114,14 +113,14 @@ export function HeroSection() {
           </div>
 
           {/* Right Content */}
-          <div className="lg:col-span-4 space-y-6">
+          <div className="space-y-6 lg:col-span-4">
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.9, duration: 0.8 }}
               className="space-y-4"
             >
-              <p className="leading-7 text-gray-300 text-sm lg:text-base leading-relaxed">
+              <p className="text-sm leading-relaxed leading-7 text-slate-700 dark:text-gray-300 lg:text-base">
                 I work with brands globally to build pixel-perfect, engaging, and accessible digital experiences that
                 drive results and achieve business goals.
               </p>
@@ -129,7 +128,7 @@ export function HeroSection() {
               <Button
                 asChild
                 size="default"
-                className="group bg-transparent border-2 border-gray-600 hover:border-green-400 hover:bg-green-400/10 text-white hover:text-green-400 transition-all duration-300 px-4 py-2 text-sm font-medium"
+                className="px-4 py-2 text-sm font-medium transition-all duration-300 bg-transparent border-2 group border-slate-300 hover:border-purple-500 hover:bg-purple-50 text-slate-700 hover:text-purple-600 dark:border-gray-600 dark:hover:border-purple-400 dark:hover:bg-purple-400/10 dark:text-white dark:hover:text-purple-400"
               >
                 <Link href="/about">
                   Know me better

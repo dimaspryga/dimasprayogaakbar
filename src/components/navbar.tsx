@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Menu, X, ArrowRight, Sparkles } from "lucide-react"
+import Image from "next/image"  
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -53,29 +54,30 @@ export function Navbar() {
           scrolled ? "bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-lg" : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="flex-shrink-0">
               <Link href="/" className="flex items-center space-x-3 group">
                 <div className="relative">
                   <motion.div
-                    className="w-10 h-10 bg-gradient-to-br from-purple-600 via-purple-500 to-purple-400 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300"
+                    className="flex items-center justify-center w-16 h-10 transition-all duration-300"
                     whileHover={{ rotate: 180 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <Sparkles className="h-5 w-5 text-white" />
+                    <Image
+                      src="/logo.png"
+                      alt="Logo"
+                      width={40}
+                      height={40}
+                      className="hidden w-16 h-10 sm:block" />
                   </motion.div>
-                </div>
-                <div className="hidden sm:block">
-                  <div className="text-lg font-bold gradient-text">Dimas PA</div>
-                  <div className="text-xs text-muted-foreground font-medium">Front-End Developer</div>
                 </div>
               </Link>
             </motion.div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-1">
+            <div className="items-center hidden space-x-1 md:flex">
               {navItems.map((item, index) => (
                 <motion.div
                   key={item.name}
@@ -95,13 +97,13 @@ export function Navbar() {
                     {pathname === item.href && (
                       <motion.div
                         layoutId="navbar-indicator"
-                        className="absolute inset-0 bg-primary/10 rounded-lg border border-primary/20"
+                        className="absolute inset-0 border rounded-lg bg-primary/10 border-primary/20"
                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
                       />
                     )}
 
                     {/* Hover effect */}
-                    <div className="absolute inset-0 bg-muted/50 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                    <div className="absolute inset-0 transition-opacity duration-200 rounded-lg opacity-0 bg-muted/50 group-hover:opacity-100" />
                   </Link>
                 </motion.div>
               ))}
@@ -120,12 +122,12 @@ export function Navbar() {
                 <Button
                   asChild
                   size="sm"
-                  className="group relative overflow-hidden bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-700 hover:to-purple-600 border-0 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="relative overflow-hidden transition-all duration-300 border-0 shadow-lg group bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-700 hover:to-purple-600 hover:shadow-xl"
                 >
                   <Link href="/contact">
                     <span className="relative z-10 flex items-center">
                       Let's Talk
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
+                      <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
                     </span>
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-r from-purple-700 to-purple-600"
@@ -138,7 +140,7 @@ export function Navbar() {
               </motion.div>
 
               {/* Mobile menu button */}
-              <Button variant="ghost" size="sm" onClick={toggleMenu} className="md:hidden relative w-10 h-10 p-0">
+              <Button variant="ghost" size="sm" onClick={toggleMenu} className="relative w-10 h-10 p-0 md:hidden">
                 <AnimatePresence mode="wait">
                   {isOpen ? (
                     <motion.div
@@ -175,7 +177,7 @@ export function Navbar() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="md:hidden bg-background/95 backdrop-blur-xl border-t border-border/50"
+              className="border-t md:hidden bg-background/95 backdrop-blur-xl border-border/50"
             >
               <div className="px-4 py-6 space-y-3">
                 {navItems.map((item, index) => (
@@ -208,7 +210,7 @@ export function Navbar() {
                   <Button asChild className="w-full bg-gradient-to-r from-purple-600 to-purple-500">
                     <Link href="/contact" onClick={closeMenu}>
                       Let's Talk
-                      <ArrowRight className="ml-2 h-4 w-4" />
+                      <ArrowRight className="w-4 h-4 ml-2" />
                     </Link>
                   </Button>
                 </motion.div>

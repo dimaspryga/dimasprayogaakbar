@@ -1,9 +1,7 @@
 "use client"
 
-import type React from "react"
-
+import * as React from "react"
 import { motion } from "framer-motion"
-import { useState } from "react"
 
 interface CardStackProps {
   title: string
@@ -17,16 +15,18 @@ interface CardStackProps {
 }
 
 export function CardStack({ title, subtitle, cards, className = "" }: CardStackProps) {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
+  const [hoveredCard, setHoveredCard] = React.useState<number | null>(null)
 
   return (
-    <div className={`relative w-full min-h-[600px] bg-gray-900 rounded-3xl p-8 lg:p-12 overflow-hidden ${className}`}>
-      <div className="grid lg:grid-cols-2 gap-12 items-center h-full">
+    <div
+      className={`relative w-full min-h-[600px] bg-slate-100 dark:bg-gray-900 rounded-3xl p-8 lg:p-12 overflow-hidden border border-slate-200 dark:border-gray-800 ${className}`}
+    >
+      <div className="grid items-center h-full gap-12 lg:grid-cols-2">
         {/* Left Content */}
         <div className="space-y-6">
           <div className="space-y-4">
-            <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">{title}</h2>
-            <p className="text-gray-400 text-lg">{subtitle}</p>
+            <h2 className="text-4xl font-bold leading-tight lg:text-5xl text-slate-900 dark:text-white">{title}</h2>
+            <p className="text-lg text-slate-600 dark:text-gray-400">{subtitle}</p>
           </div>
         </div>
 
@@ -36,7 +36,7 @@ export function CardStack({ title, subtitle, cards, className = "" }: CardStackP
             {cards.map((card, index) => (
               <motion.div
                 key={card.id}
-                className="absolute w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] bg-gray-800 rounded-2xl border border-gray-700 cursor-pointer"
+                className="absolute w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] bg-white dark:bg-gray-800 rounded-2xl border border-slate-200 dark:border-gray-700 cursor-pointer shadow-lg dark:shadow-gray-900/20"
                 style={{
                   zIndex: cards.length - index,
                 }}
@@ -64,15 +64,15 @@ export function CardStack({ title, subtitle, cards, className = "" }: CardStackP
                   ease: "easeOut",
                 }}
               >
-                <div className="p-6 h-full flex flex-col justify-between">
+                <div className="flex flex-col justify-between h-full p-6">
                   <div className="flex items-center space-x-3">
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                    <span className="text-white font-medium">{card.label}</span>
+                    <span className="font-medium text-slate-900 dark:text-white">{card.label}</span>
                   </div>
                   {index === cards.length - 1 && (
                     <div className="mt-4">
-                      <div className="w-full h-24 bg-gradient-to-br from-orange-400 to-yellow-500 rounded-lg flex items-center justify-center">
-                        <div className="w-8 h-8 bg-blue-600 rounded transform rotate-45"></div>
+                      <div className="flex items-center justify-center w-full h-24 rounded-lg bg-gradient-to-br from-orange-400 to-yellow-500">
+                        <div className="w-8 h-8 transform rotate-45 bg-blue-600 rounded"></div>
                       </div>
                     </div>
                   )}

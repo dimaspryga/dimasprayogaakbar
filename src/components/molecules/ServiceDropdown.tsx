@@ -1,7 +1,6 @@
 "use client"
 
-import type React from "react"
-
+import type * as React from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronDown } from "lucide-react"
 
@@ -26,18 +25,18 @@ export function ServiceDropdown({ service, isExpanded, onToggle, index }: Servic
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8, delay: index * 0.2 }}
       viewport={{ once: true }}
-      className="border-b border-gray-800 dark:border-gray-700 last:border-b-0"
+      className="border-b border-slate-200 dark:border-gray-800 last:border-b-0"
     >
       <div className="py-4 cursor-pointer group" onClick={onToggle}>
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <service.icon className="h-5 w-5 text-gray-400" />
-            <h3 className="scroll-m-20 text-lg lg:text-xl font-semibold tracking-tight text-white group-hover:text-purple-400 transition-colors">
+            <service.icon className="w-5 h-5 text-slate-500 dark:text-gray-400" />
+            <h3 className="text-lg font-semibold tracking-tight transition-colors scroll-m-20 lg:text-xl text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400">
               {service.title}
             </h3>
           </div>
           <motion.div animate={{ rotate: isExpanded ? 180 : 0 }} transition={{ duration: 0.3, ease: "easeInOut" }}>
-            <ChevronDown className="h-4 w-4 text-gray-400" />
+            <ChevronDown className="w-4 h-4 text-slate-500 dark:text-gray-400" />
           </motion.div>
         </div>
 
@@ -55,8 +54,10 @@ export function ServiceDropdown({ service, isExpanded, onToggle, index }: Servic
               }}
               className="overflow-hidden"
             >
-              <div className="mt-3 pl-8">
-                <p className="leading-7 text-gray-300 text-sm lg:text-base leading-relaxed">{service.description}</p>
+              <div className="pl-8 mt-3">
+                <p className="text-sm leading-relaxed leading-7 text-slate-600 dark:text-gray-300 lg:text-base">
+                  {service.description}
+                </p>
               </div>
             </motion.div>
           )}
