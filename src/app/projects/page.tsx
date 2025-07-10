@@ -10,69 +10,36 @@ import { useFilter } from "@/hooks/useFilter"
 export default function Projects() {
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "Kelana App",
       description:
-        "A full-stack e-commerce solution with React, Next.js, and Stripe integration. Features include product management, cart functionality, and secure payments.",
-      image: "/placeholder.svg?height=300&width=400",
-      technologies: ["Next.js", "React", "TypeScript", "Stripe", "PostgreSQL"],
-      category: "Full Stack",
-      github: "https://github.com",
-      demo: "https://demo.com",
+        "Online Travel Booking Platform solution with React, Next.js, and Tailwind CSS. Features include product management, cart functionality, and transaction processing with payment methods.",
+      image: "/kelana-app.png?height=300&width=400",
+      technologies: ["Next.js", "React", "Tailwind CSS", "Node.js"],
+      category: "Frontend",
+      github: "#",
+      demo: "https://kelana-app.vercel.app",
       featured: true,
     },
     {
-      title: "Task Management App",
+      title: "Pabos Adventure",
       description:
-        "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-      image: "/placeholder.svg?height=300&width=400",
-      technologies: ["React", "Node.js", "Socket.io", "MongoDB"],
-      category: "Full Stack",
-      github: "https://github.com",
-      demo: "https://demo.com",
+        "Company Profile Website for Pabos Adventure, built with vanilla JavaScript, HTML, and CSS. Features include a responsive design, interactive elements, and a modern layout.",
+      image: "/pabos.png?height=300&width=400",
+      technologies: ["JavaScript", "HTML", "CSS"],
+      category: "Frontend",
+      github: "#",
+      demo: "#",
       featured: true,
     },
     {
       title: "Portfolio Website",
       description:
         "A modern portfolio website built with Next.js, featuring smooth animations, dark mode, and responsive design.",
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/porto-dimas.png?height=300&width=400",
       technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
       category: "Frontend",
-      github: "https://github.com",
-      demo: "https://demo.com",
-      featured: false,
-    },
-    {
-      title: "Weather Dashboard",
-      description:
-        "A beautiful weather dashboard with location-based forecasts, interactive charts, and weather alerts.",
-      image: "/placeholder.svg?height=300&width=400",
-      technologies: ["React", "Chart.js", "Weather API"],
-      category: "Frontend",
-      github: "https://github.com",
-      demo: "https://demo.com",
-      featured: false,
-    },
-    {
-      title: "Restaurant Management System",
-      description:
-        "A comprehensive restaurant management system with order tracking, inventory management, and analytics.",
-      image: "/placeholder.svg?height=300&width=400",
-      technologies: ["React", "Express.js", "MySQL", "JWT"],
-      category: "Full Stack",
-      github: "https://github.com",
-      demo: "https://demo.com",
-      featured: false,
-    },
-    {
-      title: "Mobile Banking UI",
-      description:
-        "A modern mobile banking interface design with intuitive user experience and accessibility features.",
-      image: "/placeholder.svg?height=300&width=400",
-      technologies: ["Figma", "React Native", "UI/UX"],
-      category: "Design",
-      github: "https://github.com",
-      demo: "https://demo.com",
+      github: "#",
+      demo: "https://dimasprayogaakbar.vercel.app",
       featured: false,
     },
   ]
@@ -90,17 +57,17 @@ export default function Projects() {
     <div className="min-h-screen pt-16">
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-950/20 dark:via-indigo-950/20 dark:to-purple-950/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="px-4 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="space-y-4"
           >
-            <h1 className="scroll-m-20 text-2xl lg:text-4xl font-extrabold tracking-tight">
+            <h1 className="text-2xl font-extrabold tracking-tight scroll-m-20 lg:text-4xl">
               My <span className="gradient-text">Projects</span>
             </h1>
-            <p className="text-xl text-muted-foreground text-base lg:text-lg max-w-2xl mx-auto">
+            <p className="max-w-2xl mx-auto text-base text-xl text-muted-foreground lg:text-lg">
               A collection of projects that showcase my skills in front-end development, UI/UX design, and
               problem-solving abilities.
             </p>
@@ -110,14 +77,14 @@ export default function Projects() {
 
       {/* Featured Projects */}
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <SectionHeader
             badge="FEATURED"
             title="Featured Projects"
             subtitle="Some of my most impactful and challenging projects."
           />
 
-          <div className="grid lg:grid-cols-2 gap-6">
+          <div className="grid gap-6 lg:grid-cols-2">
             {featuredProjects.map((project, index) => (
               <ProjectCard key={project.title} project={project} index={index} variant="featured" />
             ))}
@@ -127,7 +94,7 @@ export default function Projects() {
 
       {/* All Projects */}
       <section className="py-16 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <SectionHeader
             badge="ALL PROJECTS"
             title="All Projects"
@@ -144,13 +111,13 @@ export default function Projects() {
                 onClick={() => setFilter(category)}
                 className="mb-2 text-xs"
               >
-                <Filter className="h-3 w-3 mr-2" />
+                <Filter className="w-3 h-3 mr-2" />
                 {category}
               </Button>
             ))}
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {filteredProjects.map((project, index) => (
               <ProjectCard key={project.title} project={project} index={index} variant="grid" />
             ))}
